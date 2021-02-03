@@ -4,6 +4,17 @@ transformarlos a enteros (parseInt) y Sumarlos.
 mostrar el resulto por medio de "ALERT"*/
 function sumar()
 {
-	alert("ok");
+
+	let num1;
+	let num2;
+	let suma;
+
+	
+
+
+
+
+
 }
+
 
