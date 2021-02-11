@@ -1,6 +1,17 @@
 function mostrar()
 {
-	var estacionIngresada =txtIdEstacion.value;
-	alert(estacionIngresada);
+	let estacion
+	let destino
+	let precioinicial
+	
+	estacion=document.getElementById("txtIdEstacion").value;
+	destino=document.getElementById("txtIdDestino").value;
 
-}//FIN DE LA FUNCIÓN
+	switch(estacion){
+		
+		case "Invierno": 
+		case "Verano": 
+		case "Otoño": 
+		case "Primavera": 
+	}
+}
