@@ -7,15 +7,12 @@ function mostrar()
 	let positivos=0;
 	let negativos=1;
 	let respuesta;
-
-	
-
 	
 	do{
-		numero=prompt("Ingrese un numero");
+		numero=parseInt(prompt("Ingrese un numero"));
 
 		while(isNaN(numero)){
-			numero=prompt("ERROR. Ingrese un numero");
+			numero=parseInt(prompt("ERROR. Ingrese un numero"));
 		}
 
 		if(numero>=0){
