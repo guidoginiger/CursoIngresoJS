@@ -7,6 +7,7 @@ function mostrar()
 	let positivos=0;
 	let negativos=1;
 	let respuesta;
+	let flag=0;
 	
 	do{
 		numero=parseInt(prompt("Ingrese un numero"));
@@ -21,12 +22,17 @@ function mostrar()
 		}
 		else{
 			negativos*=numero;
+			flag=1;
 		}
 
 		
 		respuesta = prompt("¿Quiere ingresar otro numero?");
 
 	}while(respuesta=='s');
+
+	if(flag==0){
+		negativos=0;
+	}
 
 	document.getElementById("txtIdSuma").value=positivos;
 	document.getElementById("txtIdProducto").value=negativos;
