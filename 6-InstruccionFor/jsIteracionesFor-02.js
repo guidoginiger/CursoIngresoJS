@@ -2,7 +2,7 @@ function mostrar()
 {
 	let i;
 
-	for(i=10;i>0;i--){
+	for(i=10;i>1;i--){
 		console.log(i);
 	}
 }

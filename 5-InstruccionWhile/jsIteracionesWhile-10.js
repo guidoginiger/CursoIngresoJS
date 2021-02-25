@@ -48,7 +48,8 @@ function mostrar()
 
 		}
 
-		if(num %2==0){
+		//Para contar numeros pares
+			if(num %2==0){
 
 			contadorPares++;
 			

@@ -1,7 +1,22 @@
 function mostrar()
 {
-	alert("ok");
+	let numero;
 
+	for( ;  ;  ){
 
+		numero=parseInt(prompt("Ingrese un numero"));
 
-}//FIN DE LA FUNCIÓN
+		while(isNaN(numero)){
+			
+			numero=parseInt(prompt("ERROR. Ingrese un numero"));}
+
+			console.log(numero);
+	
+		if(numero==9){
+			break;
+		}
+	}
+		
+	alert("Chau");
+
+}

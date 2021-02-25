@@ -4,8 +4,14 @@ function mostrar()
 	
 	repeticiones= parseInt(prompt("Ingrese un numero"));
 	
-	for(repeticiones){
-		
+	while(isNaN(repeticiones) || repeticiones <= 0){
+
+		repeticiones= parseInt(prompt("ERRoR. Ingrese un numero"));
+	}
+
+	for(let i=0; i < repeticiones; i++ ){
+
+		alert("Hola UTNFra");
 	}
 
 }
