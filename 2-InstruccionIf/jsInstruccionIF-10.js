@@ -1,20 +1,24 @@
 function mostrar()
 {
-	let min=1;
-	let max=10;
 	let nota
+	let min = 1
+	let max = 10
 
-	nota=Math.floor(Math.random()* (max-min +1))+min;
+	nota= Math.floor(Math.random()*(max-min +1)) + min;
 
-	if(nota<4){
-		alert(nota + " Vamos que la proxima se puede");
+	if(nota>=9){
+
+		alert("EXCELENTE. Su nota es "+nota);
 	}
 
-	else if(nota<9){
-		alert(nota + " APROBO");
+	else if(nota>=4){
+
+		alert("APROBO. Su nota es "+nota);
+
 	}
+
 	else{
-		alert(nota + " EXCELENTE");
-	}
 
+		alert("Vamos la proxima se puede. Su nota es "+nota);
+	}
 }
