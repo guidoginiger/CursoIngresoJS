@@ -6,7 +6,7 @@ function mostrar()
 	
 	while(isNaN(repeticiones) || repeticiones <= 0){
 
-		repeticiones= parseInt(prompt("ERRoR. Ingrese un numero"));
+		repeticiones= parseInt(prompt("ERRoR. Ingrese un numero positivo"));
 	}
 
 	for(let i=0; i < repeticiones; i++ ){
