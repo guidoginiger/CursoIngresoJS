@@ -45,7 +45,6 @@ function mostrar()
 		else{
 
 			contadorCero++;
-
 		}
 
 		//Para contar numeros pares
@@ -58,7 +57,10 @@ function mostrar()
 		respuesta=prompt("¿Quiere ingresar otro numero?");
 	}while(respuesta=="si");
 
-		if(contadorPos!=0){
+	
+	
+	
+	if(contadorPos!=0){
 
 			promedioPos=acumPos/contadorPos;
 
@@ -71,14 +73,14 @@ function mostrar()
 
 		diferencia=contadorPos - contadorNeg;
 
-		console.log("Suma de negativos: " +acumNeg);
-		console.log("Suma de positivos: " +acumPos);
-		console.log("Cantidad de negativos: " +contadorNeg);
-		console.log("Cantidad de positivos: " +contadorPos);
-		console.log("Cantidad de cero: " +contadorCero);
-		console.log("Cantidad de pares: " +contadorPares);
-		console.log("Promedio de negativos: " +promedioNeg);
-		console.log("Promedio de positivos: " +promedioPos);
-		console.log("Diferencia entre positivos y negativos: " +diferencia);
+		document.write("Suma de negativos: " +acumNeg );
+		document.write("Suma de positivos: " +acumPos);
+		document.write("Cantidad de negativos: " +contadorNeg);
+		document.write("Cantidad de positivos: " +contadorPos);
+		document.write("Cantidad de cero: " +contadorCero);
+		document.write("Cantidad de pares: " +contadorPares);
+		document.write("Promedio de negativos: " +promedioNeg);
+		document.write("Promedio de positivos: " +promedioPos);
+		document.write("Diferencia entre positivos y negativos: " +diferencia);
 
 }

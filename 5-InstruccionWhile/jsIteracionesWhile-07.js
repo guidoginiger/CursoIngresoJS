@@ -8,11 +8,17 @@ function mostrar()
 	let num;
 	let promedio;
 	let contador = 0;
-	let respuesta = 's';
+	let respuesta = 'si';
 
-	while(respuesta == 's'){
+	while(respuesta == 'si'){
 		
 		num= parseInt(prompt("Ingrese un numero"));
+
+		while(isNaN(num)){
+
+			num= parseInt(prompt("ERROR. Ingrese un numero"));
+
+		}
 
 		total+=num;
 

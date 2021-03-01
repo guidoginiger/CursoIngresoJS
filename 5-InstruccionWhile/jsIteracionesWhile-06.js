@@ -1,20 +1,22 @@
 function mostrar()
 {
-	let numero;
-    let total=0;
-    let i=0;
+    let numero;
+    let i = 0;
+    let total = 0;
     let promedio;
-
-    
 
     while(i<5){
 
-       numero=parseInt(prompt("Ingrese un numero"));
+        numero=parseInt(prompt("Ingrese un numero"));
 
-       total+=numero;
+        while(isNaN(numero)){
 
-       i++;
+            numero=parseInt(prompt("ERROR. Ingrese un numero"));
+        }
 
+        total= total + numero; 
+
+        i++; //suma los numeros introducidos
     }
 
     promedio= total / 5;

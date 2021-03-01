@@ -11,7 +11,7 @@ function mostrar()
 	do{
 		num=parseInt(prompt("Ingrese un numero"));
 		
-		while(isNaN(num)){
+		while(isNaN(num)){ //validarlo
 		
 			num=parseInt(prompt("ERROR. Reingrese un numero"));
 		}
