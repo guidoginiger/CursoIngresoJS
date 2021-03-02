@@ -14,16 +14,14 @@ function mostrar()
 	let temperatura
 	let seguir
 	let tempMax;
-	let acumViu = 0;
-	let contViu = 0;
-	let cantidadViu;
-	let cantidadSol;
-	let acumSol = 0;
-	let contSol = 0;
-	let cantidadTedad;
-	let acumTedad = 0;
+	let flag = 1; 
+	let NombremaxTemp;
+	let contMayorViudo = 0;
+	let contSolViudo = 0;
 	let contTedad = 0;
-	let promedio;
+	let contSol = 0;
+	let acumSol = 0;
+	let promedioSol = 0;
 
 	do{
 
@@ -56,59 +54,14 @@ function mostrar()
 
 				temperatura= parseInt(prompt("ERROR. Ingrese temperatura"));
 			}
+
+		
 	
 	seguir= prompt("¿Quiere agregar a mas pasajeros?");
 
 	}while(seguir == "si")
 
-	if( temperatura < tempMax){
-
-		temperatura = tempMax;
-	}
-
-
-	if( sexo == "m" && estadocivil == "soltero"){
-
-		acumSol += cantidadSol;
-		contSol++;
-	}
-
-	else if( sexo == "m" && estadocivil == "viudo"){
-
-		acumViu += cantidadViu;
-		contViu++;
-
-		if( edad >= 18){
-
-			acumViu += cantidadViu;
-			contViu++;
-		}
-	}
-
-	if(edad >= 60){
-
-		if(temperatura > 38){
-
-			acumTedad+=cantidadTedad;
-			contTedad++;
-		}
-	}
-
-	if( sexo == "m" && estadocivil == "soltero"){
-
-		promedio = edad /cantidadSol;
-	}
-
-
-	document.write(nombre+ " es la persona con mas temperatura con: " +temperatura+ "<br>");
-
-	document.write("Estan viudos: " +contViu+ "<br>");
-
-	document.write("Hay " +contSol+ " solteros y " +contViu+ " viudos <br>");
-
-	document.write("Hay " +contTedad+ " personas de tercera edad que tienen mas de 38 de temperatura <br>");
-
-	document.write("El promedio de edad de hombres solteros es de: " +promedio+ "<br>");
+	
 }
 
 /*En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m") 
