@@ -55,13 +55,53 @@ function mostrar()
 				temperatura= parseInt(prompt("ERROR. Ingrese temperatura"));
 			}
 
-		
-	
+		if(flag || temperatura > tempMax){
+
+			tempMax = temperatura;
+			NombremaxTemp = nombre;
+			flag= 0;
+		}
+
+		if( edad >= 18 && estadocivil == "viudo"){
+
+			contMayorViudo++;
+		}
+
+		if(sexo == "m" && estadocivil !="casado"){
+
+			contSolViudo++;
+		}
+
+		if( edad > 60 && temperatura > 38){
+
+			contTedad++;
+		}
+
+		if( sexo == "m" && estadocivil == "soltero"){
+
+			contSol++;
+
+			acumSol+= edad;
+		}
+
 	seguir= prompt("¿Quiere agregar a mas pasajeros?");
 
 	}while(seguir == "si")
 
+	if( contSol != 0){ 
 	
+		promedioSol = acumSol / contSol;
+	}
+
+	console.log(NombremaxTemp+ " es la persona con mayor temperatura con " +tempMax );
+
+	console.log("Cantidad de mayores de edad viudos "+contMayorViudo);
+
+	console.log("Cantidad de solteros o viudos" +contSolViudo);
+
+	console.log("Cantidad de personas mayores de 60 años con mas de 38 de temperatura " +contTedad);
+
+	console.log("Promedio edad hombres solteros " +promedioSol);
 }
 
 /*En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m") 

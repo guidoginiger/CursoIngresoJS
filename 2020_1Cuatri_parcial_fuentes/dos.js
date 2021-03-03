@@ -11,102 +11,116 @@ d) Informar el tipo con mas cantidad de bolsas.
 f) El tipo mas caro*/
 function mostrar()
 {
-  let tipo
-  let cantidad
-  let precio
-  let seguir
-  let importe 
-  let subtotal = 0;
-  let descuento 
+  let tipo;
+  let cantidad;
+  let precio;
+  let seguir;
+  let importe;
+  let total = 0;
+  let descuento;
+  let maxTipo;
   let acumArena = 0;
   let acumCal = 0;
-  let acumCem = 0;
-  let maxTipo;
-  let maxPrecio;
- 
-  let flag = 1;
-  let importefinal;
+  let acumCemento = 0;
+  let maxCaro;
+  let importeFinal;
+  let maxBolsas;
   let totalBolsas;
-  let maxtipoBolsas;
+  let flag = 1;
 
-  do{
+ do{ 
+   tipo = prompt("Ingrese producto, arena o cal o cemento");
 
-    tipo= prompt("Ingrese tipo de producto: arena/cal/cemento");
+    while( tipo != "arena" && tipo != "cal" && tipo != "cemento"){
 
-      while( tipo != "arena" && tipo != "cal" && tipo != "cemento"){
-
-        tipo= prompt("ERROR. Ingrese tipo de producto: arena/cal/cemento");
-      }
-
-    precio= parseInt(prompt("Ingrese un precio"));
-
-      while(precio <= 0 || isNaN(precio)){
-
-        precio= parseInt(prompt("ERROR. Ingrese un precio mayor que cero"));
-      }
-
-    cantidad= parseInt(prompt("Ingrese cantidad de bolsas"));
-
-      while( cantidad <= 0 || isNaN(cantidad)){
-
-        cantidad= parseInt(prompt("ERROR. Ingrese cantidad de bolsas"));
-      }
-
-    importe = precio * cantidad;
-
-    subtotal += importe;
-
-    if( tipo == "arena"){
-
-      acumArena += cantidad; 
+      tipo = prompt("ERROR. Reingrese producto, arena o cal o cemento");
     }
 
-    else if( tipo == "cal"){
+  cantidad = parseInt(prompt("Ingrese cantidad de bolsas"));
 
-      acumCal+= cantidad;
-    }
-    else{
+    while(isNaN(cantidad)){
 
-      acumCem+= cantidad;
+      cantidad = parseInt(prompt("ERROR. Reingrese cantidad de bolsas"));
     }
 
-    if( flag || precio > maxPrecio){
+  precio= parseInt(prompt("Ingrese precio, mayor a cero"));
 
-      maxPrecio = precio;
-      maxTipo = tipo;
+    while( precio < 0 || isNaN(precio)){
 
-      flag = 0;
+      precio= parseInt(prompt("ERROR. Reingrese precio, mayor a cero"));
     }
-    
-      seguir= prompt("¿Quiere ingresar otro producto?");
 
-  }while( seguir == "si");
+  importe = precio * cantidad;
+  total += importe;
 
-  totalBolsas = acumArena + acumCal + acumCem;
+  if( tipo == "arena"){
 
-
-  if( acumArena > acumCal && acumArena > acumCem){
-
-    maxtipoBolsas = "arena";
+      acumArena += cantidad;
   }
 
-  else if( acumCal >= acumArena && acumCal > acumCem){
+  else if( tipo == "cal"){
 
-    maxtipoBolsas = "cal";
+    acumCal += cantidad;
   }
   else{
 
-    maxtipoBolsas = "cemento";
+    acumCemento += cantidad;
   }
 
-  console.log("Importe total a pagar es $ " +importefinal);
+  if( flag || precio > maxCaro){
 
-  console.log("Importe con descuento es $ " +importefinal);
-
-  console.log("El tipo con mas cantidad de bolsa es: " +maxtipoBolsas);
-
-  console.log("El tipo mas caro es: " +maxTipo+ " con " +maxPrecio);
+    maxCaro = precio;
+    maxTipo = tipo;
   
+    flag = 0;
+  }
+
+    seguir= prompt("¿Quiere ingresar otro producto?");
+ }while( seguir == "si");
+
+totalBolsas = acumArena + acumCal + acumCemento;
+
+if(totalBolsas <= 10){
+
+  descuento = 0;
+}
+
+else if( totalBolsas <=30){
+
+  descuento = total * 0.15;
+}
+else{
+
+  descuento = total * 0.25;
+}
+
+importeFinal = total - total * descuento;
+
+if( acumArena > acumCal && acumArena > acumCemento){
+
+    maxBolsas = "arena";
+}
+
+else if( acumCal >= acumArena && acumCal > acumCemento){
+
+  maxBolsas = "cal";
+}
+else{
+
+  maxBolsas = "cemento";
+}
+
+
+console.log("total a pagar sin descuento " +total);
+
+if(totalBolsas > 10){ 
+console.log("total a pagar con descuento " +importeFinal);}
+
+console.log("Producto con mas cantidad de bolsas " +maxBolsas);
+
+console.log("el tipo mas caro es "+maxTipo+ " con $ " +maxCaro );
+
+
 }
 
 /*hasta que el cliente quiera:

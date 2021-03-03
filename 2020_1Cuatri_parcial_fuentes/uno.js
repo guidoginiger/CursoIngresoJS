@@ -10,118 +10,115 @@ b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total
 */
 
-
 function mostrar()
 {
-	let tipo
-	let precio
-	let cantidad
-	let marca 
-	let fabricante
-	let contJ = 0;
-	let contA = 0;
-	let contB = 0;
-	let acumJ = 0;
-	let acumB = 0;
-	let acumA = 0;
+	let tipo;
+	let precio;
+	let cantidad;
+	let marca;
+	let fabricante;
+	let contAlcohol = 0;
+	let acumAlcohol = 0;
+	let minAlcohol;
+	let maxTipo = 0;
 	let promedio;
-	let maxtipo = 0;
-	let precioMin;
-	let cantidadMin;
+	let contJabon = 0;
+	let acumJabon = 0;
+	let acumBarbijo = 0;
+	let contBarbijo = 0;
+	let cantMin;
 	let fabricanteMin;
 	let flag = 1;
 
-	for(let i=0 ; i<2 ; i++){
+	for(let i = 0; i < 5; i++){
 
-		tipo= prompt("Ingrese producto. alcohol o barbijo o jabon");
+		tipo=prompt("Ingrese producto, alcohol/barbijo/jabon");
 
-			while(tipo != "alcohol" && tipo != "barbijo" && tipo!= "jabon"){
-
-				tipo= prompt("ERROR. Ingrese producto. alcohol o barbijo o jabon");	
+			while(tipo != "alcohol" && tipo != "barbijo" && tipo !="jabon"){
+				
+				tipo=prompt("Ingrese producto, alcohol/barbijo/jabon");
 			}
-
-		precio= parseInt(prompt("Ingrese un precio entre 100 y 300"));
+		
+		precio= parseInt(prompt("Ingrese precio entre 100 y 300"));
 
 			while(precio < 100 || precio > 300 || isNaN(precio)){
 
-				precio=parseInt(prompt("ERROR. Ingrese un precio entre 100 y 300"));
+				precio= parseInt(prompt("ERROR. Ingrese precio entre 100 y 300"));
 			}
 
-		cantidad= parseInt(prompt("Ingrese cantidad de productos. Entre 1 y 1000"));
-
+		cantidad= parseInt(prompt("Ingrese unidades entre 1 y 1000"));
+		
 			while(cantidad < 1 || cantidad > 1000 || isNaN(cantidad)){
 
-				cantidad= parseInt(prompt("ERROR. Ingrese cantidad de productos. Entre 1 y 1000"));
+				cantidad= parseInt(prompt("ERROR. Ingrese unidades entre 1 y 1000"));
+			}
+		
+		marca= prompt("Ingrese marca");
+		fabricante= prompt("Ingrese fabricante");
+
+		if( tipo == "alcohol"){
+
+			if(flag || precio < minAlcohol){
+
+				minAlcohol = precio;
+
+				fabricanteMin = fabricante;
+				
+				cantMin = cantidad;
+
+				flag = 0;
+
 			}
 
-		marca= prompt("Ingrese una marca");
-
-		fabricante= prompt("Ingrese un fabricante");
-
-	//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
-
-	if(tipo == "alcohol"){
-
-		if(flag || precio < precioMin ){
-
-			precioMin = precio;
-
-			fabricanteMin = fabricante;
-
-			cantidadMin = cantidad;
+			acumAlcohol+= cantidad;
+			contAlcohol++;
 
 		}
 
-		acumA+=cantidad;
-		contA++;
+		else if(tipo == "barbijo"){
+
+			acumBarbijo+= cantidad;
+			contBarbijo++;
+		}
+		else{
+			acumJabon+= cantidad;
+			contJabon++;
+		}
 	}
 
-	//tipo barbijo
-
-	else if( tipo == "barbijo"){
-
-		acumB+=cantidad;
-		contB++;
+	if( acumAlcohol > acumBarbijo && acumAlcohol > acumJabon){
+		
+		promedio = acumAlcohol / contAlcohol;
+		maxTipo = "alcohol";
 	}
 
-	//tipo jabon
+	else if( acumBarbijo >= acumAlcohol && acumBarbijo > acumJabon){
 
+		promedio = acumBarbijo / contBarbijo;
+		maxTipo = "barbijo";
+	}
 	else{
 
-		acumJ+=cantidad;
-		contJ++;
-	}
-}	
-
-	//Del tipo con mas unidades,  el promedio por compra
-
-	if(acumA > acumB && acumA > acumJ){
-
-		promedio = acumA / contA;
-
-		maxtipo = "alcohol";
-
+		promedio = acumJabon / contJabon;
+		maxTipo = "jabon";
 	}
 
-	else if(acumB >= acumA && acumB >= acumJ){
+	console.log("El alcohol mas barato es "+fabricanteMin+ " con " +acumAlcohol+ " unidades y su precio es $" +minAlcohol);
 
-		promedio = acumB / contB;
+	console.log("El producto con mas unidades es " +maxTipo+ " y el promedio por compra es " +promedio);
 
-		maxtipo = "barbijo";
-	}
-
-	else {
-
-		promedio = acumJ / contJ;
-
-		maxtipo= "jabon";
-	}
-
-	document.write("El alcohol mas barato es el: " +fabricanteMin+ " con " +acumA+ " unidades. Y su precio es: $" +precioMin+  "<br>" );
-
-	document.write("El producto con mas unidades es: " +maxtipo+ " y el promedio por compra es: " +promedio+  "<br>");
-
-	document.write("La cantidad total de jabones es de: " +acumJ+ " unidades <br>");
-
+	console.log("Hay " +acumJabon+ " jabones");
 
 }
+
+/*Debemos realizar la carga de 5(cinco) productos de prevención de contagio,
+de cada una debo obtener los siguientes datos:
+el tipo (validar "barbijo" , "jabón" o "alcohol") ,
+el precio (validar entre 100 y 300),
+la cantidad de unidades (no puede ser 0 o negativo y no debe superar las 1000 unidades),
+la Marca y el fabricante.
+Se debe Informar al usuario lo siguiente:
+a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+b) Del tipo con mas unidades, el promedio por compra
+c) Cuántas unidades de jabones hay en total
+*/
